@@ -16,7 +16,7 @@ from models import (db, User)
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ss_user:5heMcHFf&L9ehUuk@sportsearch_database_1/ss_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:1@prochat'
 db.init_app(app)
 app.app_context().push()
 
@@ -32,11 +32,7 @@ app.app_context().push()
 #  function for inserting data into user table
 def users(fake):
     user_default_settings = {'email_notification':True,
-                             'new_event':True,
-                             'new_reviews':True,
                              'conformation_of_app':True,
-                             'event_invitation':True,
-                             'viber_notification':False,
                              'telegram_notification':False, }
 
     with app.app_context():

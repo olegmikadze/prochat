@@ -1,5 +1,5 @@
 import os
-from conf.config import DevelopmentConfig, ProductionConfig, TestingConfig
+from config.config import DevelopmentConfig, ProductionConfig, TestingConfig
 
 APP_CONFIG = {
     'dev': DevelopmentConfig,
