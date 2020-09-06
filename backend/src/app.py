@@ -2,8 +2,9 @@ from flask import Flask
 from flask_cors import CORS
 import logging
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Column, Integer, Text
-from api.models import db, User
+from flask_migrate import Migrate
+
+# from sqlalchemy import Column, Integer, Text
 # from api.routes import routes
 
 from config import APP_CONFIG
@@ -27,25 +28,19 @@ from config import APP_CONFIG
 
 app = Flask(__name__)
 app.config.from_object(APP_CONFIG)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:1@localhost:5432/prochat'
+db = SQLAlchemy()
+migrate = Migrate()
 
-db = SQLAlchemy(app)
+db.init_app(app)
 
-print(db)
+migrate.init_app(app, db)
 
-class User(db.Model):
-    __tablename__ = 'user'
-
-    id = db.Column(db.Integer, primary_key=True)
-
-    nickname = db.Column(db.Text, nullable=False, unique=True)
-    email = db.Column(db.Text, nullable=False, unique=True)
-    phone = db.Column(db.Text, nullable=False, unique=True)
+from api.models import User
 
 # register_blueprints(app)
 # init_extensions(app)
 
-# command to run application: FLASK_ENV=development python -m flask run
-if __name__ == '__main__':
-    db.create_all()
-    app.run(debug=True)
+
+# if __name__ == '__main__':
+
+#     app.run(debug=True)

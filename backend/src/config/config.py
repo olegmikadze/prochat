@@ -7,7 +7,7 @@ class Config(object):
     DEBUG = False
     TESTING = False
     SECRET_KEY = 'secret_key'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = 'postgres://oleg:1@localhost:5432/prochat_db'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 
