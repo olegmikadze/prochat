@@ -32,3 +32,6 @@ register_blueprints(app)
 # flask db migrate -m "{name}" 
 # flask upgrade
 
+# start project
+# from backend/src run -> flask run
+
