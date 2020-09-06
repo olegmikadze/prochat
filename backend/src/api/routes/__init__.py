@@ -6,10 +6,10 @@ routes = Blueprint('routes', __name__)
 # ADD IT HERE
 # then add here:
 # from .zaebis import zaebis1, zaebis2 ...
-from .signup import signup
-from .signin import signin
-from .facebook import signin_fb
-from .google import signin_google
-from .setting import settings
-from .notification import notification
+# from .signup import signup
+# from .signin import signin
+# from .facebook import signin_fb
+# from .google import signin_google
+# from .setting import settings
+# from .notification import notification
 from .profile import profile

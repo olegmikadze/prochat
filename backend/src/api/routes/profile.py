@@ -6,7 +6,7 @@
 # import boto3
 # import imghdr
 
-# from api.routes import routes
+from api.routes import routes
 # from ..models import db, User
 # # from .signup import create_nickname, count_nickname
 
@@ -14,8 +14,9 @@
 # s = URLSafeTimedSerializer(APP_CONFIG.SECRET_KEY)
 # mail = Mail()
 
-# @routes.route('/profile', methods=['GET', 'PUT'])
-# def profile():
+@routes.route('/profile', methods=['GET', 'PUT'])
+def profile():
+    return 'profile'
 #     if request.method == 'GET':
 #         try:
 #             user = User.query.filter(User.id == session.get('user')).first()
