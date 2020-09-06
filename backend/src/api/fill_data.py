@@ -17,6 +17,8 @@ from models import (db, User)
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:1@prochat'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
 db.init_app(app)
 app.app_context().push()
 
@@ -53,7 +55,7 @@ def users(fake):
                                 birth_date = fake.date_between(start_date="-30y",
                                    end_date="-20y").strftime('%Y-%m-%d'),
                                 rating =  round(random.uniform(3, 5),2),
-                                image_url = random.choice(user_img_urls),
+                                # image_url = random.choice(user_img_urls),
                                 description = fake.text(max_nb_chars=200),
                                 viber_account = '1',
                                 telegram_account = '1',
